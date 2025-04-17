@@ -17,20 +17,18 @@ int main(){
         file.close();
     }
 
-    if (passwordChoice.empty() && usernameChoice.empty()){
+    if (passwordChoice.empty()){
         std::cout << "What would you like your username to be?: ";
         std::cin >> usernameChoice;
         
         std::cout << "\nWhat would you like your password to be?: ";
         std::cin >> passwordChoice;
         std::cout << "\n\nWelcome, " << usernameChoice;
+        std::ofstream outFile(filename);
+        outFile << usernameChoice << "\n" << passwordChoice;
+        outFile.close();
+        std::cout << "\n\n";
     }
-    
-    std::ofstream outFile(filename);
-        if (outFile.is_open()) {
-            outFile << usernameChoice << "\n" << passwordChoice;
-            outFile.close();
-        }
     
     std::cout << "Please enter your username: ";
     std::cin >> typedUsername;
